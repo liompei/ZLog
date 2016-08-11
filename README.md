@@ -35,7 +35,7 @@ Z.d("tag","This is debug")
 输出结果
 ![](https://github.com/liompei/ZLog/blob/master/img/simple1.png)
 
-##主要方法有:
+主要方法有:
 ###Log
 
 ```
