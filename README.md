@@ -24,8 +24,8 @@ Z.d("tag","This is debug")
 输出结果
 ![](https://github.com/liompei/ZLog/blob/master/img/simple1.png)
 
-###主要方法有:
-####Log
+##主要方法有:
+###Log
 
 ```
 Z.v();  //verbose
@@ -42,12 +42,12 @@ Z.xml();  //parse xml
 Z.initLog("TAG",true);  //tag,isShowlog
 ```
 
-####Toast
+###Toast
 注意:使用Toast必须初始化传入Context,否则将不显示
 ```
 Z.initToast(getApplicationContext(),true);  //context,isShowToast
 ```
-Use
+
 ```
 Z.Show("This is Toast");
 ```
