@@ -1,6 +1,6 @@
 # ZLog
 
-ZLog,更方便的打印日志,Toast
+ZLog更方便的打印日志,Toast
 参考[KLog](https://github.com/liompei/KLog)做了一些优化
 
 - 支持显示行号
@@ -11,6 +11,12 @@ ZLog,更方便的打印日志,Toast
 - 支持无限制字数打印
 - 支持全局Tag
 - 支持Toast
+
+
+##Android Studio
+##Eclipse
+Download [zlog.jar](https://github.com/liompei/ZLog/raw/master/zlog.jar) or zlog library
+[zlog.jar](https://github.com/liompei/ZLog/raw/master/zlog.jar)
 
 ## How to Use
 Zlog可打印普通日志和Json,xml字符串,支持无msg、无tag、有tag模式
