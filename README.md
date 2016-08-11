@@ -15,9 +15,11 @@ ZLog更方便的打印日志,Toast
 ---
 
 ##Android Studio
-
-compile 'com.liompei.zlog:zlog:1.0.0'
-
+```
+dependencies {
+    compile 'com.liompei.zlog:zlog:1.0.0'
+}
+```
 ##Eclipse
 Download [zlog.jar](https://github.com/liompei/ZLog/raw/master/zlog.jar) or zlog library
 
@@ -64,7 +66,7 @@ Z.Show("This is Toast");
 ```
 ---
 
-###*License*
+###License
 
 ZLog is released under the [Apache 2.0 license](LICENSE).
 
