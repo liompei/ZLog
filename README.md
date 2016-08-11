@@ -16,7 +16,7 @@ ZLog更方便的打印日志,Toast
 
 ##Android Studio
 
-
+compile 'com.liompei.zlog:zlog:1.0.0'
 
 ##Eclipse
 Download [zlog.jar](https://github.com/liompei/ZLog/raw/master/zlog.jar) or zlog library
@@ -62,6 +62,7 @@ Z.initToast(getApplicationContext(),true);  //context,isShowToast
 ```
 Z.Show("This is Toast");
 ```
+---
 
 ###*License*
 
