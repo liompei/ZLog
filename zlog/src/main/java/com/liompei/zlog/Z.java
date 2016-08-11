@@ -5,58 +5,55 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.liompei.zlog.BaseLog;
-import com.liompei.zlog.JsonLog;
-import com.liompei.zlog.XmlLog;
-
 /**
  * Created by BLM on 2016/8/10.
  *
  * @author liompei
- *         本库参考凯子哥(github: ZhaoKaiQiang)的KLog
+ *
  *         KLog:  github https://github.com/ZhaoKaiQiang/KLog
  *         2016/8/10 create
- *         去除Log信息保存功能
+ *         去除Log信息保存功能,优化了初始化操作
+ *
  */
 public class Z {
 
-    private static boolean IS_SHOW_LOG = true;  //是否打印日志,默认打印
-    private static boolean IS_SHOW_TOAST = true;  //是否显示toast,默认显示
-    private static String TAG;  //标签
+    private static boolean IS_SHOW_LOG = true;
+    private static boolean IS_SHOW_TOAST = true;
+    private static String TAG;
     public static final String LINE_SEPARATOR = System.getProperty("line.separator");
 
-    public static final int V = 0x1;  //verbose
-    public static final int D = 0x2;  //debug
-    public static final int I = 0x3;  //information
-    public static final int W = 0x4;  //warning
-    public static final int E = 0x5;  //error
+    public static final int V = 0x1;
+    public static final int D = 0x2;
+    public static final int I = 0x3;
+    public static final int W = 0x4;
+    public static final int E = 0x5;
 
-    public static final int WTF = 0x6;  //What a Terrible Failure
+    public static final int WTF = 0x6;
     public static final int JSON = 0x7;
     public static final int XML = 0x8;
 
     public static final int JSON_INDENT = 4;
 
-    public static final String DEFAULT_MESSAGE = "execute";  //执行,默认输出字符
-    public static final String TAG_DEFAULT = "Z--log";  //默认tag
+    public static final String DEFAULT_MESSAGE = "execute";
+    public static final String TAG_DEFAULT = "Z--log";
     public static final String NULL_TIPS = "Log`s object is null";
 
 
-    private static final int STACK_TRACE_INDEX = 5;  //??
-    private static final String SUFFIX = ".java";  //类后缀
+    private static final int STACK_TRACE_INDEX = 5;
+    private static final String SUFFIX = ".java";
 
-    private static boolean mIsGlobalTagEmpty = true;  //TAG是否无值
+    private static boolean mIsGlobalTagEmpty = true;
 
     private static Context CONTEXT;
 
-    public static void initLog(String tag,boolean isShowlog) {
+    public static void initLog(String tag, boolean isShowlog) {
         IS_SHOW_LOG = isShowlog;
         TAG = tag;
-        mIsGlobalTagEmpty = TextUtils.isEmpty(TAG);  //判断传入的值是否为空,为空返回true
+        mIsGlobalTagEmpty = TextUtils.isEmpty(TAG);
     }
 
-    public static void initToast(Context context,boolean isShowToast) {
-        IS_SHOW_TOAST=isShowToast;
+    public static void initToast(Context context, boolean isShowToast) {
+        IS_SHOW_TOAST = isShowToast;
         CONTEXT = context;
     }
 
@@ -67,12 +64,12 @@ public class Z {
         printLog(V, null, DEFAULT_MESSAGE);
     }
 
-    public static void v(Object msg) {
-        printLog(V, null, msg);
+    public static void v(Object verbose) {
+        printLog(V, null, verbose);
     }
 
-    public static void v(String tag, Object msg) {
-        printLog(V, tag, msg);
+    public static void v(String tag, Object verbose) {
+        printLog(V, tag, verbose);
     }
 
     /**
@@ -82,12 +79,12 @@ public class Z {
         printLog(D, null, DEFAULT_MESSAGE);
     }
 
-    public static void d(Object msg) {
-        printLog(D, null, msg);
+    public static void d(Object debug) {
+        printLog(D, null, debug);
     }
 
-    public static void d(String tag, Object msg) {
-        printLog(D, tag, msg);
+    public static void d(String tag, Object debug) {
+        printLog(D, tag, debug);
     }
 
     /**
@@ -98,12 +95,12 @@ public class Z {
         printLog(I, null, DEFAULT_MESSAGE);
     }
 
-    public static void i(Object msg) {
-        printLog(I, null, msg);
+    public static void i(Object information) {
+        printLog(I, null, information);
     }
 
-    public static void i(String tag, Object msg) {
-        printLog(I, tag, msg);
+    public static void i(String tag, Object information) {
+        printLog(I, tag, information);
     }
 
     /**
@@ -114,12 +111,12 @@ public class Z {
         printLog(W, null, DEFAULT_MESSAGE);
     }
 
-    public static void w(Object msg) {
-        printLog(W, null, msg);
+    public static void w(Object warning) {
+        printLog(W, null, warning);
     }
 
-    public static void w(String tag, Object msg) {
-        printLog(W, tag, msg);
+    public static void w(String tag, Object warning) {
+        printLog(W, tag, warning);
     }
 
     /**
@@ -130,16 +127,16 @@ public class Z {
         printLog(E, null, DEFAULT_MESSAGE);
     }
 
-    public static void e(Object msg) {
-        printLog(E, null, msg);
+    public static void e(Object error) {
+        printLog(E, null, error);
     }
 
-    public static void e(String tag, Object msg) {
-        printLog(E, tag, msg);
+    public static void e(String tag, Object error) {
+        printLog(E, tag, error);
     }
 
     /**
-     * A
+     * wtf
      */
     public static void wtf() {
         printLog(WTF, null, DEFAULT_MESSAGE);
@@ -154,7 +151,7 @@ public class Z {
     }
 
     /**
-     * json数据
+     * json
      *
      * @param jsonData
      */
@@ -167,7 +164,7 @@ public class Z {
     }
 
     /**
-     * xml解析
+     * xml
      *
      * @param xml
      */
@@ -181,17 +178,17 @@ public class Z {
     }
 
     public static void show(String toast) {
-        if (!IS_SHOW_TOAST){
+        if (!IS_SHOW_TOAST) {
             return;
         }
 
         try {
             Toast.makeText(CONTEXT, toast, Toast.LENGTH_SHORT).show();
-        }catch (NullPointerException e){
-            Log.e("Zlog--","---------------------------------------------");
-            Log.e("Zlog--error",e.getMessage());
-            Log.e("Zlog--suggest","please add Context with Z.initToast() ");
-            Log.e("Zlog--","---------------------------------------------");
+        } catch (NullPointerException e) {
+            Log.e("Zlog--", "---------------------------------------------");
+            Log.e("Zlog--error", e.getMessage());
+            Log.e("Zlog--suggest", "please add Context with Z.initToast() ");
+            Log.e("Zlog--", "---------------------------------------------");
         }
 
     }
@@ -229,37 +226,35 @@ public class Z {
     private static String[] wrapperContent(String tagStr, Object object) {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         StackTraceElement targetElement = stackTrace[STACK_TRACE_INDEX];
-        String className = targetElement.getClassName();  //获得当前类名
-        String[] classNameInfo = className.split("\\.");  //出现 . 的地方分隔成数组
+        String className = targetElement.getClassName();
+        String[] classNameInfo = className.split("\\.");
         if (classNameInfo.length > 0) {
-            //如果是内部类,取数组第一个类名
+
             className = classNameInfo[classNameInfo.length - 1] + SUFFIX;
         }
-        if (className.contains("$")) {  //判断是否包含
-            className = className.split("\\$")[0] + SUFFIX;  //取分组后的第一位作为类
+        if (className.contains("$")) {
+            className = className.split("\\$")[0] + SUFFIX;
         }
 
-        String methodName = targetElement.getMethodName();  //所在的方法名
-        int lineNumber = targetElement.getLineNumber();  //所在行号
+        String methodName = targetElement.getMethodName();
+        int lineNumber = targetElement.getLineNumber();
         if (lineNumber < 0) {
             lineNumber = 0;
         }
-        //方法首字母大写(隐藏)
-//        String methodNameShort=methodName.substring(0,1).toUpperCase()+methodName.substring(1);
 
-        //tagStr为空则显示方法名,不为空显示输入的tag
+
+
         String tag = (tagStr == null ? className : tagStr);
 
-        //若没有初始化tag和输入的tag为空
         if (mIsGlobalTagEmpty && TextUtils.isEmpty(tagStr)) {
             tag = TAG_DEFAULT;
         } else if (!TextUtils.isEmpty(tagStr)) {
-            //若中途为TAG赋值
-            tag =tagStr;
+
+            tag = tagStr;
         } else if (!mIsGlobalTagEmpty && TextUtils.isEmpty(tagStr)) {
             tag = TAG;
         }
-        //若无显示预设,若有则进行解析
+
         String msg = (object == null) ? NULL_TIPS : getObjectsString(object);
 
         String headString = "[ (" + className + ":" + lineNumber + ")#" + methodName + " ] ";

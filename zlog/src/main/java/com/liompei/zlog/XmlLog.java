@@ -13,7 +13,7 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
 /**
- * Created by zhaokaiqiang on 15/11/18.
+ * Created by BLM on 2016/8/10.
  */
 public class XmlLog {
 
@@ -30,7 +30,7 @@ public class XmlLog {
         String[] lines = xml.split(Z.LINE_SEPARATOR);
         for (String line : lines) {
             if (!Util.isEmpty(line)) {
-                Log.d(tag, "║ " + line);
+                Log.d(tag, "|| " + line);
             }
         }
         Util.printLine(tag, false);

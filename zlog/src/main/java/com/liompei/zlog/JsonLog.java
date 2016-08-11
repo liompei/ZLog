@@ -7,7 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * Created by zhaokaiqiang on 15/11/18.
+ * Created by BLM on 2016/8/10.
  */
 public class JsonLog {
 
@@ -33,7 +33,7 @@ public class JsonLog {
         message = headString + Z.LINE_SEPARATOR + message;
         String[] lines = message.split(Z.LINE_SEPARATOR);
         for (String line : lines) {
-            Log.d(tag, "║ " + line);
+            Log.d(tag, "|| " + line);
         }
         Util.printLine(tag, false);
     }
