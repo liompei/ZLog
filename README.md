@@ -21,6 +21,7 @@ dependencies {
 }
 ```
 coming soon...
+
 please download [zlog.jar](https://github.com/liompei/ZLog/raw/master/zlog.jar)
 ##Eclipse
 Download [zlog.jar](https://github.com/liompei/ZLog/raw/master/zlog.jar) or zlog library
