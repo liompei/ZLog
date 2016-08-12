@@ -20,9 +20,7 @@ dependencies {
     compile 'com.liompei.zlog:zlog:1.0.0'
 }
 ```
-or
 
-download [zlog.jar](https://github.com/liompei/ZLog/raw/master/zlog.jar)
 ##Eclipse
 Download [zlog.jar](https://github.com/liompei/ZLog/raw/master/zlog.jar) or zlog library
 
