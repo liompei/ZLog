@@ -1,8 +1,10 @@
 # ZLog
 
 ZLog更方便的打印日志,Toast
+
+#### 如果不想用Zlog开头，可以试试[ZxLog](https://github.com/liompei/Zx)  https://github.com/liompei/Zx
+
 参考[KLog](https://github.com/liompei/KLog)做了一些优化
-## 如果不想用Zlog开头，可以试试[ZxLog](https://github.com/liompei/Zx)https://github.com/liompei/Zx
 
 - 支持显示行号
 - 支持显示Log所在函数名称
