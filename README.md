@@ -18,7 +18,7 @@ ZLog更方便的打印日志,Toast
 ##Android Studio
 ```
 dependencies {
-    compile 'com.liompei.zlog:zlog:1.0.0'
+    implementation 'com.liompei.zlog:zlog:1.0.0'
 }
 ```
 
